@@ -21,6 +21,7 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
       // Where the source can be found
       sourceAction: new codepipeline_actions.GitHubSourceAction({
         actionName: 'GitHub',
+        branch: 'main',
         output: sourceArtifact,
         oauthToken: SecretValue.secretsManager('SoManyHs/CdkPipelinesDemo'),
         owner: 'SoManyHs',
