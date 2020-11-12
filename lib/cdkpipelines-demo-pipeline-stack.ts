@@ -34,7 +34,7 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
          sourceArtifact,
          cloudAssemblyArtifact,
 
-         // We need a build step to compile the TypeScript Lambda
+         // We need a build step to compile the TypeScript Fargate Service
          buildCommand: 'npm run build'
        }),
     });
