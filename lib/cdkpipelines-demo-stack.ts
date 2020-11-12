@@ -9,19 +9,24 @@ import * as path from 'path';
  */
 export class CdkpipelinesDemoStack extends Stack {
   /**
-   * The URL of the API Gateway endpoint, for use in the integ tests
+   * The DNS of the LoadBalancer
    */
+  public readonly urlOutput: CfnOutput;
 
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     // Instantiate Fargate Service with just cluster and image
-    new ecs_patterns.ApplicationLoadBalancedFargateService(this, "FargateService", {
+    const service = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "FargateService", {
       memoryLimitMiB: 1024,
       cpu: 512,
       taskImageOptions: {
         image: ecs.ContainerImage.fromRegistry('amazon/amazon-ecs-sample'),
       },
+    });
+
+    this.urlOutput = new CfnOutput(this, 'Url', {
+      value: service.loadBalancer.loadBalancerDnsName,
     });
   }
 }
