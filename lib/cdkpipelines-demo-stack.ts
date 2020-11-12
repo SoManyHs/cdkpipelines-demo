@@ -5,11 +5,11 @@ import { CfnOutput, Construct, Stack, StackProps } from '@aws-cdk/core';
 import * as path from 'path';
 
 /**
- * A stack for our simple Lambda-powered web service
+ * A stack for our simple Application Load Balanced Fargate Service
  */
 export class CdkpipelinesDemoStack extends Stack {
   /**
-   * The DNS of the LoadBalancer
+   * The DNS endpoint of the LoadBalancer
    */
   public readonly urlOutput: CfnOutput;
 

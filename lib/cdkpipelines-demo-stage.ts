@@ -2,7 +2,7 @@ import { CfnOutput, Construct, Stage, StageProps } from '@aws-cdk/core';
 import { CdkpipelinesDemoStack } from './cdkpipelines-demo-stack';
 
 /**
- * Deployable unit of web service app
+ * Deployable unit of Fargate web app
  */
 export class CdkpipelinesDemoStage extends Stage {
   public readonly urlOutput: CfnOutput;
